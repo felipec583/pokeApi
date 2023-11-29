@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.img-cont {
+  width: 500px;
+}
+
+#pokemon-container {
+  height: 80vh;
+}
+
+.poke-img {
+  width: 17rem;
+}
+
+.logo {
+  width: 50px;
+}
+
