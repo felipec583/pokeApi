@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <div className="navbar bg-gray-800 text-white h-50">
       <div className="flex-1">
-        <img src="../../public/logo.svg" alt="logo" className="logo" />
+        <img src="/logo.svg" alt="logo" className="logo" />
       </div>
       <div className="flex gap-x-3">
         <NavLink

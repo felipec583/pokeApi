@@ -1,14 +1,25 @@
 import "./App.css";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import StateProvider from "./context/ContextProvider.jsx";
+
 function App() {
+  const navigation = useNavigation();
+  console.log(navigation.state);
   return (
     <>
-      <NavBar />
-      <StateProvider>
-        <Outlet />
-      </StateProvider>
+      <div id="detail">
+        <NavBar />
+        <StateProvider>
+          {navigation.state === "loading" ? (
+            <div id="spinner">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
+          ) : (
+            <Outlet />
+          )}
+        </StateProvider>
+      </div>
     </>
   );
 }

@@ -12,8 +12,8 @@ const Home = () => {
   });
   return (
     <>
-      <section className="flex flex-col items-center my-2 ">
-        <h1 className="text-5xl text-bold mt-2">Bienvenido Maestro Pokemón</h1>
+      <section className="flex flex-col items-center my-10">
+        <h1 className="text-5xl font-bold mt-2">Bienvenido Maestro Pokemón</h1>
         <div className="img-cont">
           <img src="/home-img.png" alt="charizard" />
         </div>
