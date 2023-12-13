@@ -6,10 +6,11 @@ const ErrorPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       navigate("/", { replace: true });
     }, 5000);
-  });
+    return () => clearTimeout(timerId);
+  }, []);
   return (
     <section className="flex flex-col items-center justify-center h-screen gap-y-5">
       <h1 className="text-bold text-6xl">Oops!</h1>

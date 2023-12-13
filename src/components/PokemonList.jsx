@@ -1,11 +1,9 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { StateContext } from "../context/ContextProvider";
 const PokemonList = () => {
-  const {selectedValue, setSelectedValue} = useContext(StateContext);
-  useEffect(() => {
-    if (selectedValue) console.log(selectedValue);
-  }, [selectedValue]);
+  const { setSelectedValue } = useContext(StateContext);
+
   const list = useLoaderData();
   const pokemons = list.map((pkm) => {
     return (

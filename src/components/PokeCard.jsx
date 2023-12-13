@@ -1,14 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { getPokemonData } from "../data/fetchPokemon";
 
-export async function loader({ params }) {
-  try {
-    const pokemon = await getPokemonData(params.name);
-    return { pokemon };
-  } catch (error) {
-    console.log(error.message);
-  }
-}
 const PokeCard = () => {
   const { pokemon } = useLoaderData();
 

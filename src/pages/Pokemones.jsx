@@ -1,14 +1,13 @@
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PokemonList from "../components/PokemonList";
 import { useContext } from "react";
 import { StateContext } from "../context/ContextProvider";
 const Pokemones = () => {
   const { selectedValue } = useContext(StateContext);
   const navigate = useNavigate();
-  const navigation = useNavigation();
-  function handleClick(name) {
+
+  function handlePokemonSelection(name) {
     if (selectedValue !== "title") {
-      console.log(navigation.state);
       navigate(`./${name}`, { replace: true });
     } else {
       alert("Selelecciona un Pokemon");
@@ -24,7 +23,7 @@ const Pokemones = () => {
         <PokemonList />
         <button
           className="btn btn-primary"
-          onClick={() => handleClick(selectedValue)}
+          onClick={() => handlePokemonSelection(selectedValue)}
         >
           Ver detalles
         </button>

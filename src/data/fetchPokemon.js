@@ -2,7 +2,7 @@ async function getPokemon() {
   try {
     const url = "https://pokeapi.co/api/v2/";
     const res = await fetch(`${url}pokemon?limit=700`);
-    if (!res.ok) throw new Error(`Something went wrong ${res.status}`);
+    if (!res.ok) throw new Error(`Something went wrong ${res.statusText}`);
     const data = await res.json();
     return data?.results;
   } catch (error) {
@@ -34,4 +34,13 @@ async function getPokemonData(name) {
   }
 }
 
-export { getPokemon, transformedPokemonArray, getPokemonData };
+async function loader({ params }) {
+  try {
+    const pokemon = await getPokemonData(params.name);
+    return { pokemon };
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export { getPokemon, transformedPokemonArray, getPokemonData, loader };

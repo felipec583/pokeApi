@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import generateNavLinkClass from "../utils/utils";
 const NavBar = () => {
   return (
     <div className="navbar bg-gray-800 text-white h-50">
@@ -9,28 +9,12 @@ const NavBar = () => {
       <div className="flex gap-x-3">
         <NavLink
           to="/"
-          className={({ isActive }) => {
-            const par = [
-              isActive
-                ? ["btn-primary", "text-white"].join(" ")
-                : ["btn-secondary", "text-black"].join(" "),
-            ];
-
-            return [...par, "btn"].join(" ");
-          }}
+          className={({ isActive }) => generateNavLinkClass(isActive)}
         >
           Home
         </NavLink>
         <NavLink
-          className={({ isActive }) => {
-            const par = [
-              isActive
-                ? ["btn-primary", "text-white"].join(" ")
-                : ["btn-secondary", "text-black"].join(" "),
-            ];
-
-            return [...par, "btn"].join(" ");
-          }}
+          className={({ isActive }) => generateNavLinkClass(isActive)}
           to="/pokemones"
         >
           Pokemones

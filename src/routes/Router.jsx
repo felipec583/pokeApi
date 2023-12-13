@@ -9,7 +9,7 @@ import Pokemones from "../pages/Pokemones";
 import Pokemon from "../pages/Pokemon";
 import ErrorPage from "../pages/ErrorPage";
 import { transformedPokemonArray } from "../data/fetchPokemon.js";
-import { loader as pokemonLoader } from "../components/PokeCard.jsx";
+import { loader as pokemonLoader } from "../data/fetchPokemon.js";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<ErrorPage />}>
