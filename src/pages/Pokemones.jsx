@@ -2,6 +2,10 @@ import { useNavigate } from "react-router-dom";
 import PokemonList from "../components/PokemonList";
 import { useContext } from "react";
 import { StateContext } from "../context/ContextProvider";
+import toast, { Toaster } from "react-hot-toast";
+
+const notifyError = () => toast.error("Selecciona un Pokemon");
+
 const Pokemones = () => {
   const { selectedValue } = useContext(StateContext);
   const navigate = useNavigate();
@@ -10,11 +14,12 @@ const Pokemones = () => {
     if (selectedValue !== "title") {
       navigate(`./${name}`, { replace: true });
     } else {
-      alert("Selelecciona un Pokemon");
+      notifyError();
     }
   }
   return (
     <>
+      <Toaster />
       <section
         className="flex flex-col items-center justify-center gap-y-5 h-screen"
         id="pokemon-container"
